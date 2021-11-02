@@ -1527,7 +1527,7 @@ public class GriefPrevention extends JavaPlugin
             Claim claim = this.dataStore.getClaimAt(player.getLocation(), true /*ignore height*/, null);
 
             //bracket any permissions
-            if (args[0].contains(".") && !args[0].startsWith("[") && !args[0].endsWith("]"))
+            if (args[0].matches("^[^\\[.\\n]+\\.[^\\]\\n]+$"))
             {
                 args[0] = "[" + args[0] + "]";
             }
@@ -2949,7 +2949,7 @@ public class GriefPrevention extends JavaPlugin
                 return;
             }
         }
-        else if (recipientName.contains("."))
+        else if (recipientName.matches("^[^\\[.\\n]+\\.[^\\]\\n]+$"))
         {
             permission = recipientName;
         }
